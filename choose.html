@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dribbble - What brings you here?</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #fff2f1;
+            color: #333333;
+        }
+        h2,p {
+            text-align: center;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .back-link {
+            color: #ff6bd6;
+            text-decoration: none;
+            font-size: 24px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 500;
+            margin: 0;
+        }
+
+        h2 {
+            font-size: 25px;
+            font-weight: 500;
+            margin-top: 0;
+        }
+
+        .options-container {
+            display: flex;
+            justify-content: center; 
+            margin-bottom: 50px; 
+            padding-bottom: 10px; 
+            margin-top: 70px; 
+            width: 80%; 
+            margin-left: auto; 
+            margin-right: auto; 
+        }
+
+        .option {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px; 
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 30%; 
+            height: 200px; 
+            cursor: pointer;
+            margin: 0 10px; 
+            overflow: hidden; 
+            display: flex;
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: flex-end; 
+        }
+
+        .option img {
+            width: 100%; 
+            height: auto; 
+            border-radius: 10px 10px 0 0;
+        }
+
+        .option p {
+            margin-top: auto; 
+        }
+
+        .option.selected {
+            background-color: pink; 
+            color: #ffffff;
+            border: 2px solid #ff6bd6; 
+        }
+
+        .option-description {
+            font-size: 14px;
+            margin-top: 10px;
+            display: none; 
+        }
+
+        .option.selected .option-description {
+            display: block; 
+        }
+
+        .finish-button {
+            background-color: #ff6bd6;
+            color: #ffffff;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+            position: fixed; 
+            bottom: 20px; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            pointer-events: none; 
+            opacity: 0.5; 
+        }
+
+        .finish-button.active {
+            pointer-events: auto; 
+            opacity: 1; 
+        }
+
+        .or-text {
+            text-align: center;
+            font-size: 14px;
+            color: #666666;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="project.html" class="back-link">&#8592;</a>
+        <h1><a href="project.html" style="color: #ff6bd6; text-decoration: none;">𝓭𝓻𝓲𝓫𝓫𝓫𝓵𝓮</a></h1>
+    </header>
+    <main>
+        <h2><b>What brings you to Dribbble?</b></h2>
+        <p>Select the options that best describe you. Don't worry, you can explore other options later.</p>
+        <div class="options-container">
+            <div class="option">
+                <div class="option-icon">
+                    <img src="share.jpg" alt="Designer looking to share work">
+                </div>
+                <p><b>I'm a designer looking to share my work</b></p>
+                <p class="option-description">With over 7 million shots from a vast community of designers, Dribbble is the leading source for design inspiration.</p>
+            </div>
+            <div class="option">
+                <div class="option-icon">
+                    <img src="hire.jpg" alt="Looking to hire a designer">
+                </div>
+                <p><b>I'm looking to hire a designer</b></p>
+                <p class="option-description">Find the perfect designer for your project from a diverse pool of talent on Dribbble.</p>
+            </div>
+            <div class="option">
+                <div class="option-icon">
+                    <img src="inspiration.jpg" alt="Looking for design inspiration">
+                </div>
+                <p><b>I'm looking for design inspiration</b></p>
+                <p class="option-description">Discover new trends, techniques, and styles to fuel your creativity and take your designs to the next level.</p>
+            </div>
+        </div>
+        <p class="or-text">Anything else? You can choose multiple.</p>
+    </main>
+    <button class="finish-button" disabled>Finish</button>
+    <script>
+        const options = document.querySelectorAll('.option');
+        const finishButton = document.querySelector('.finish-button');
+
+        options.forEach(option => {
+            option.addEventListener('click', () => {
+                option.classList.toggle('selected');
+                finishButton.disabled = document.querySelectorAll('.option.selected').length === 0;
+                finishButton.classList.toggle('active', !finishButton.disabled);
+            });
+        });
+
+        finishButton.addEventListener('click', () => {
+            window.location.href = "email.html";
+        });
+    </script>
+</body>
+</html>

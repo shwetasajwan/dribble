@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In Form</title>
+</head>
+<body style="background-color:  #f7f7f7; font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0;">
+    <div style="background-color: white; padding: 40px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        <h2 style="color: #333; margin-bottom: 20px; text-align: center;">Sign In</h2>
+        <form onsubmit="handleSignIn(event)" style="display: flex; flex-direction: column; gap: 15px;">
+            <input type="text" placeholder="Username" required style="padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+            <input type="password" placeholder="Password" required style="padding: 10px; border: 1px solid  #ddd; border-radius: 5px;">
+            <button type="submit" style="padding: 10px 20px; background-color:  #FF3E87; color: white; border: none; border-radius: 5px; cursor: pointer;">Sign In</button>
+        </form>
+        <p style="text-align: center; margin-top: 20px;">Not a member? <a href="signup.html" style="color:  #4CAF50;">Sign up now</a></p>
+    </div>
+
+    <script>
+        function handleSignIn(event) {
+            event.preventDefault();
+            alert('Sign In Successful!');
+            // Here you would add your sign-in logic or redirection
+        }
+    </script>
+</body>
+</html>
